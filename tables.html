@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tables</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/candidate/css/jquery.stockquotes.css" />
+
+
+  <!-- JavaScript -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="/candidate/js/jquery.stockquotes.js"></script>
+
+
+
+  </head>
+
+
+
+<!-- fetch data from amazonaws -->
+
+<script>
+$.ajax({
+url: 'https://s3-ap-southeast-1.amazonaws.com/advisory-data/positions.json',
+type: "get",
+dataType: "json",
+
+success: function(data) {
+drawTable(data);
+}
+});
+
+function drawTable(data) {
+for (var i = 0; i < data.positions.length; i++) {
+drawRow(data.positions[i]);
+}
+}
+
+function drawRow(rowData) {
+var row = $("<tr />")
+$("#personDataTable").append(row); 
+row.append($("<td>" + rowData.symbol + "</td>"));
+row.append($("<td>" + rowData.volume + "</td>"));
+row.append($("<td>" + rowData.price + "</td>"));
+}
+</script>
+
+</head>
+<body>
+  <!-- Navigation bar + Menus -->
+ <nav class="darkblue" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/candidate/tables.html" class="brand-logo">TABLES</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" class="whitefont waves-effect waves-light">Profile</a></li>
+        <li><a href="#" class="whitefont waves-effect waves-light">Log out</a></li>
+      </ul>
+ <!-- Mobile - Navigation bar + Menus -->
+      <ul id="nav-mobile" class="side-nav" style="background-color: #f0f0f0;">
+        <h6 class="darkblue right padding">Administrator</h6>
+        <img class="profile-image-small" src="images/contact.png"> <h6 class="darkblue center paddingsize">Surachet Phoonmat</h6>
+        <li><a href="/candidate/index.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">inbox</i>Dashboard</a></li>
+        <li><a href="/candidate/tables.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">table</i>Tables</a></li>
+        <li><a href="/candidate/charts.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear_all</i>Charts</a></li>
+        <li><a href="/candidate/nasdaq.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">reorder</i>Nasdaq Stock</a></li>
+        <li><a href="#"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear</i>Log out</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
+
+<!-- Top-menu -->
+    <div class="section">
+      <div class="row">
+             <div class="animated fadeIn center menu-grp">
+             <a href="/candidate/index.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons right">inbox</i>Dashboard</a>
+              <a href="/candidate/tables.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons right">view_list</i>Tables</a>
+              <a href="/candidate/charts.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons left">clear_all</i>Charts</a>
+        <a href="/candidate/nasdaq.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons left">reorder</i>Nasdaq Stock</a>
+          </div>        
+      </div>
+    </div>    
+  
+
+
+      <!--   Block Section for tables + charts  -->
+
+        <div class="section">
+      <div class="row">
+        <div class="col s12 l12 xl12">
+          <div class="icon-block boxshadow animated fadeInUp">
+            <table id="personDataTable" class="table smalltable">
+              <thead>
+                <tr>
+                    <h5 class="center whitefont">TABLES</h5>
+                    <th class="whitefont center">Symbol</th>
+                    <th class="whitefont center">Volume</th>
+                    <th class="whitefont center">Price</th>
+                  </div>
+                </tr>
+              </thead>
+        </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Footer -->
+
+<footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="whitefont text-lighten-3" href="https://www.ch3tziizym.wordpress.com">Surachet P.</a>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts -->
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

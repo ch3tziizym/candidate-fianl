@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Charts</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/candidate/css/jquery.stockquotes.css" />
+
+
+  <!-- JavaScript -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="/candidate/js/jquery.stockquotes.js"></script>
+
+
+
+  </head>
+
+
+<!-- script for highlight bar chart -->
+
+<script>
+$(function () { 
+    var myChart = Highcharts.chart('charts', {
+    chart: {
+        type: 'column',
+        backgroundColor: '#323C50'
+    },
+    title: {
+        text: '<div style="color: #fff;">Stock lists</div>'
+    },
+    subtitle: {
+        text: '<div style="color: #fff;">Source: amazonaws</div>'
+    },
+    xAxis: {
+      max: 8,
+        categories: [
+            '<div style="color: #FB667A;">MSFT</div>',
+            '<div style="color: #FB667A;">FB</div>',
+            '<div style="color: #FB667A;">BAC</div>',
+            '<div style="color: #FB667A;">CSCO</div>',
+            '<div style="color: #FB667A;">LULU</div>',
+            '<div style="color: #FB667A;">C</div>',
+            '<div style="color: #FB667A;">AMZN</div>',
+            '<div style="color: #FB667A;">TSLA</div>',
+            '<div style="color: #FB667A;">NFLX</div>'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: '<div style="color: #fff;">Quantity (Volume)</div>'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+
+        name: '<div style="color: #fff; font-size: 10px; word-wraping: none; text-align: left;">Volume</div>',
+        data: [15000, 7200, 23000, 9100, 22500, 17530, 8820, 13900, 7300],
+
+
+    }]
+})
+});
+</script>
+
+<!-- script for highlight bar chart -->
+
+
+<script>
+$(function () { 
+    var myChart = Highcharts.chart('charts2', {
+    chart: {
+        type: 'column',
+        backgroundColor: '#323C50'
+    },
+    title: {
+        Color: '#111',
+        text: '<div style="color: #fff;">Stock lists</div>'
+    },
+    subtitle: {
+        text: '<div style="color: #fff;">Source: amazonaws</div>'
+    },
+    xAxis: {
+      max: 8,
+        categories: [
+            '<div style="color: #FB667A;">MSFT</div>',
+            '<div style="color: #FB667A;">FB</div>',
+            '<div style="color: #FB667A;">BAC</div>',
+            '<div style="color: #FB667A;">CSCO</div>',
+            '<div style="color: #FB667A;">LULU</div>',
+            '<div style="color: #FB667A;">C</div>',
+            '<div style="color: #FB667A;">AMZN</div>',
+            '<div style="color: #FB667A;">TSLA</div>',
+            '<div style="color: #FB667A;">NFLX</div>'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        color: '#111',
+        min: 0,
+        title: {
+            text: '<div style="color: #fff;">Price in US Dollars ($)</div>'
+        }
+    },
+    colors: ['white'],
+
+    tooltip: {
+
+   
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+
+    series: [{  
+
+        name: '<div style="color: #fff;">Price</div>',
+        data: [72.81, 144.5, 30.33, 37.5, 72.4, 67.25, 780, 235, 140.2]
+   }]
+})
+});
+</script>
+
+
+
+</head>
+<body>
+  <!-- Navigation bar + Menus -->
+ <nav class="darkblue" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/candidate/charts.html" class="brand-logo">CHARTS</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" class="whitefont waves-effect waves-light">Profile</a></li>
+        <li><a href="#" class="whitefont waves-effect waves-light">Log out</a></li>
+      </ul>
+ <!-- Mobile - Navigation bar + Menus -->
+      <ul id="nav-mobile" class="side-nav" style="background-color: #f0f0f0;">
+        <h6 class="darkblue right padding">Administrator</h6>
+        <img class="profile-image-small" src="images/contact.png"> <h6 class="darkblue center paddingsize">Surachet Phoonmat</h6>
+        <li><a href="/candidate/index.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">inbox</i>Dashboard</a></li>
+        <li><a href="/candidate/tables.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">table</i>Tables</a></li>
+        <li><a href="/candidate/charts.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear_all</i>Charts</a></li>
+        <li><a href="/candidate/nasdaq.html"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">reorder</i>Nasdaq Stock</a></li>
+        <li><a href="#"><i class="material-icons mdc-list-item__start-detail" aria-hidden="true">clear</i>Log out</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
+
+<!-- Top-menu -->
+    <div class="section">
+      <div class="row">
+             <div class="animated fadeIn center menu-grp">
+             <a href="/candidate/index.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons right">inbox</i>Dashboard</a>
+              <a href="/candidate/tables.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons right">view_list</i>Tables</a>
+              <a href="/candidate/charts.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons left">clear_all</i>Charts</a>
+        <a href="/candidate/nasdaq.html" class="waves-effect waves-light btn-large darkblue btn"><i class="material-icons left">reorder</i>Nasdaq Stock</a>
+          </div>        
+      </div>
+    </div>    
+
+
+      <!--   Block Section for tables + charts  -->
+
+        <div class="section">
+      <div class="row">
+             <div class="col s12 l6 xl6">
+          <div class="icon-block boxshadow animated fadeInUp">
+           <h5 class="center whitefont">PRICE CHARTS</h5>
+           <div id="charts2" style="width: 100% height: 400px;"></div>
+          </div>
+        </div>
+
+        <div class="col s12 l6 xl6">
+          <div class="icon-block boxshadow animated fadeInUp">
+            <h5 class="center whitefont">VOLUME CHARTS</h5>
+            <div id="charts" style="width:100%; height:400px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Footer -->
+
+<footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="whitefont text-lighten-3" href="https://www.ch3tziizym.wordpress.com">Surachet P.</a>
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts -->
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
